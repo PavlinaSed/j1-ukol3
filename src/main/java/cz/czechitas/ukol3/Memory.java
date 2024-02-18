@@ -1,0 +1,20 @@
+package cz.czechitas.ukol3;
+
+public class Memory {
+    private long capacity;
+
+    public long getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(long capacity) {
+        this.capacity = capacity;
+    }
+
+    @Override
+    public String toString() {
+        return "Memory: " +
+                "capacity " + capacity + "[Byte]" ;
+    }
+}
+
