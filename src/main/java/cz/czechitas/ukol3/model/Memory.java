@@ -1,4 +1,4 @@
-package cz.czechitas.ukol3;
+package cz.czechitas.ukol3.model;
 
 public class Memory {
     private long capacity;
@@ -14,7 +14,7 @@ public class Memory {
     @Override
     public String toString() {
         return "Memory: " +
-                "capacity " + capacity + "[Byte]" ;
+                "capacity " + capacity + "[Byte]";
     }
 }
 
