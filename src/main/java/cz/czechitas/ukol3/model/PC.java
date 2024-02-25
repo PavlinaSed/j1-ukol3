@@ -79,28 +79,32 @@ public class PC {
 
         }
     }
-*/
+    */
 
 
-    /* public void createFileWithSize(long size) {
-        long spaceUsed = localDisk.getSpaceUsed(); //PROČ JE TADY LOCALDISK A NE PAVDISK ????????
+    public void createFileWithSize(long size) {
+        long spaceUsed = localDisk.getSpaceUsed();
         long capacity = localDisk.getCapacity();
 
-        if (isOn) {                                // nebo tohle celé bude v závorce setteru ?
-            if (spaceUsed < capacity) {
-                spaceUsed = spaceUsed + size;
-                localDisk.setSpaceUsed(spaceUsed);
-                System.out.println("New file with size " + size + " Bytes was created, " + (capacity - spaceUsed) + "free space remains");
-            } else {
-                System.err.println("there is not enough free localdisk space ");
-            }
-        } else {
+        if (!isOn) {
+            System.out.println("ERR: PC is off");
             return;
         }
+
+        long freeSpace = capacity - spaceUsed;
+        if (size > freeSpace) {
+            System.out.println("ERR: there is not enough free localdisk space ");
+            return;
+        }
+
+        spaceUsed = spaceUsed + size;
+        localDisk.setSpaceUsed(spaceUsed);
+        System.out.println("New file with size " + size + " Bytes was created, " + localDisk.getSpaceUsed() + "is already used");
+
     }
 
 
-    public void deleteFilesWithSize(long size) {
+   /* public void deleteFilesWithSize(long size) {
         long spaceUsed = localDisk.getSpaceUsed();
         if (isOn) {
             setSpaceUsed(

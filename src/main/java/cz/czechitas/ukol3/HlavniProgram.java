@@ -52,6 +52,8 @@ public class HlavniProgram {
         pavPc.turnOn();
 
 
-       // pavPc.createFileWithSize(180_000_000_000L);
+        pavPc.createFileWithSize(180_000_000_000L);
+        pavPc.createFileWithSize(100_000_000_000L);
+        pavPc.createFileWithSize(164_000_000_000L);
     }
 }
