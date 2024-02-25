@@ -22,7 +22,6 @@ public class HlavniProgram {
 
         Disk pavDisk = new Disk();
         pavDisk.setCapacity(325_000_000_000L);
-        pavDisk.setSpaceUsed(160_000_000_000L); //TOTO JO ?
 
         pavPc.turnOn();
 
@@ -42,18 +41,19 @@ public class HlavniProgram {
         pavPc.turnOn();
         System.out.println(pavPc.toString());
         pavPc.turnOn();
-        System.out.println(pavPc.toString());
+        System.out.println("PC power on status (is on = " + pavPc.isOn() + ")");
 
         pavPc.turnOff();
-        //System.out.println("The computer is on = " + pavPc.isOn()); //hodnota isOn, zda je po vypnutí počítač vypnutý
         pavPc.turnOff();
-        System.out.println(pavPc.toString());
+        System.out.println("PC power on status (is on = " + pavPc.isOn() + ")");
 
         pavPc.turnOn();
 
+        pavPc.createFileOfSize(180_000_000_000L);
+        pavPc.createFileOfSize(100_000_000_000L);
+        pavPc.createFileOfSize(164_000_000_000L);
 
-        pavPc.createFileWithSize(180_000_000_000L);
-        pavPc.createFileWithSize(100_000_000_000L);
-        pavPc.createFileWithSize(164_000_000_000L);
+        pavPc.deleteFilesOfSize(100_000_000_000L);
+        pavPc.deleteFilesOfSize(200_000_000_000L);
     }
 }

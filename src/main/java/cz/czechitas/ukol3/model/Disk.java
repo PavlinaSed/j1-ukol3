@@ -18,21 +18,13 @@ public class Disk {
         return spaceUsed;
     }
 
-    public void setSpaceUsed(long spaceUsed) { //DEBUG
-       // if (spaceUsed < capacity) {              //DEBUG
-            this.spaceUsed = spaceUsed; //+ size;
-           // System.out.println("New file was created");
-       // } else {
-          //  this.spaceUsed = spaceUsed;
-          //  System.err.println("Not enough local disk free space");
-        //}
-
+    public void setSpaceUsed(long spaceUsed) {
+        this.spaceUsed = spaceUsed;
     }
 
     @Override
     public String toString() {
-        return "Disk: " +
-                "capacity " + capacity + "[Byte]" +
-                ", space used " +spaceUsed + "[Byte]";
+        return "Disk capacity = " + capacity + "[Byte]" +
+                "; Used disk space = " + spaceUsed + "[Byte].";
     }
 }

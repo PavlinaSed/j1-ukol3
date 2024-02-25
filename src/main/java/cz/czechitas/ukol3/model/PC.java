@@ -31,15 +31,14 @@ public class PC {
         this.localDisk = localDisk;
     }
 
-    //NEBO SI MAM VYTVORIT NOVÝ SETTER PRO SPACE USED ?
 
     @Override
     public String toString() {
-        return "Pc " +
-                " isOn= (" + isOn + "), \n" +
-                "cpu = " + cpu.toString() + ", \n" +
-                "installed ram= " + ram.toString() + ", \n" +
-                "local disk= " + localDisk.toString()
+        return "PC power on status: " +
+                " (isOn = " + isOn + "), \n" +
+                "CPU = " + cpu.toString() + ", \n" +
+                "Installed RAM: " + ram.toString() + ", \n" +
+                "Local disk: " + localDisk.toString()
                 ;
     }
 
@@ -49,14 +48,14 @@ public class PC {
     }
 
     public void turnOn() {
-        System.out.println("trying to turn on the pc");
+        System.out.println("...trying to turn on the pc...");
         if (isOn) {
-            System.out.println("ERR: PC is already on.");
+            System.out.println("ERR: PC is already on!");
             return;
         }
 
         if (ram == null || cpu == null || localDisk == null) {
-            System.out.println("ERR: Ram, cpu, local disk must be set");
+            System.out.println("ERR: RAM / CPU / local disk must be set!");
             return;
         }
 
@@ -72,49 +71,46 @@ public class PC {
         }
     }
 
-    /* public void createFileWithSize(long size) {
-        if (isOn){
-            createFileWithSize(size);
-        } else {
 
-        }
-    }
-    */
-
-
-    public void createFileWithSize(long size) {
+    public void createFileOfSize(long size) {
         long spaceUsed = localDisk.getSpaceUsed();
         long capacity = localDisk.getCapacity();
 
         if (!isOn) {
-            System.out.println("ERR: PC is off");
+            System.out.println("ERR: PC is off!");
             return;
         }
 
         long freeSpace = capacity - spaceUsed;
         if (size > freeSpace) {
-            System.out.println("ERR: there is not enough free localdisk space ");
+            System.out.println("ERR: There is not enough free local disk space! ");
             return;
         }
 
         spaceUsed = spaceUsed + size;
         localDisk.setSpaceUsed(spaceUsed);
-        System.out.println("New file with size " + size + " Bytes was created, " + localDisk.getSpaceUsed() + "is already used");
+        System.out.println("A new file of size " + size + "[Byte] has been created, " + localDisk.getSpaceUsed() + "[Byte] of disk size is already used.");
 
     }
 
 
-   /* public void deleteFilesWithSize(long size) {
+    public void deleteFilesOfSize(long size) {
         long spaceUsed = localDisk.getSpaceUsed();
-        if (isOn) {
-            setSpaceUsed(
-            if (spaceUsed >= 0) {       //spaceUsed nemůže klesnout pod 0
-                spaceUsed = spaceUsed - size;
-                System.out.println("The file of size " + size + " was deleted");
-            }
-            );
-        } else return;
-    } */
+        if (!isOn) {
+            System.out.println("ERR: PC is off!");
+            return;
+        }
+
+        if (spaceUsed-size < 0) {
+            System.out.println("ERR: The used space cannot acquire negative value!");
+            return;
+        }
+
+        spaceUsed = spaceUsed - size;
+        localDisk.setSpaceUsed(spaceUsed);
+        System.out.println("A file with size " + size + "[Byte] has been deleted, " + localDisk.getSpaceUsed() + "[Byte] of disk size is already used.");
+
+    }
 }
 
 

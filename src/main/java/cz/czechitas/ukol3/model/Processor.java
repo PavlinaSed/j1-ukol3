@@ -22,8 +22,7 @@ public class Processor {
 
     @Override
     public String toString() {
-        return "Processor: " +
-                "manufacturer'" + manufacturer + '\'' +
-                ", speed " + speed + "[Hz]";
+        return "Processor manufacturer = (" + manufacturer + ")" +
+                "; Processor speed = " + speed + "[Hz].";
     }
 }

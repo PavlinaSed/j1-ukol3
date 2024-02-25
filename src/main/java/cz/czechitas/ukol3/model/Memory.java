@@ -13,8 +13,7 @@ public class Memory {
 
     @Override
     public String toString() {
-        return "Memory: " +
-                "capacity " + capacity + "[Byte]";
+        return "Memory capacity = " + capacity + "[Byte].";
     }
 }
 
